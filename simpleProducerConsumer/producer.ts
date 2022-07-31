@@ -1,11 +1,11 @@
-const amqplib = require("amqplib")
+import amqp from "amqplib"
 
-const queueName = "jobs"
+const queueName: string = "jobs"
 const messageJSON = { number: process.argv[2] }
 
 const produce = async () => {
     try {
-        const connection = await amqplib.connect("amqp://localhost:5672")
+        const connection = await amqp.connect("amqp://localhost:5672")
         const channel = await connection.createChannel()
         await channel.assertQueue(queueName)
         channel.sendToQueue(queueName, Buffer.from(JSON.stringify(messageJSON)))

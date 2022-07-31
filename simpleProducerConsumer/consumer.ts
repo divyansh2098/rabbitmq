@@ -1,5 +1,5 @@
-const amqp = require("amqplib")
-const queueName = "jobs"
+import amqp from "amqplib"
+const queueName: string = "jobs"
 
 const consume = async () => {
     try {
@@ -7,10 +7,10 @@ const consume = async () => {
         const channel = await connection.createChannel()
         const result = await channel.assertQueue(queueName)
         channel.consume(queueName, (message) => {
-            const content = message.content.toString()
-            const contentJson = JSON.parse(content)
+            const content = message?.content.toString()
+            const contentJson = content ? JSON.parse(content) : "{}"
             console.log(`Received message: ${contentJson.number}`)
-            if(contentJson.number === "21") {
+            if(contentJson.number === "21" && message) {
                 channel.ack(message)
             }
         })

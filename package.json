@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "producer-consumer-produce": "node ./simpleProducerConsumer/producer.js",
-    "producer-consumer-consume": "node ./simpleProducerConsumer/consumer.js"
+    "producer-consumer:produce": "node ./dist/simpleProducerConsumer/producer.js",
+    "producer-consumer:consume": "node ./dist/simpleProducerConsumer/consumer.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,9 @@
   "dependencies": {
     "amqplib": "^0.10.0",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.8.2",
+    "@types/node": "^18.6.3"
   }
 }
