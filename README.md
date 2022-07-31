@@ -1,0 +1,1 @@
+# Examples usages of rabbitmq
