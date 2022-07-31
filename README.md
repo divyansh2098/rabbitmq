@@ -1,1 +1,2 @@
-# Examples usages of rabbitmq
+# rabbitmq
+Rabbitmq use case examples
